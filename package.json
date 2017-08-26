@@ -1,0 +1,40 @@
+{
+  "name": "jioakimmvp",
+  "version": "1.0.0",
+  "description": "jioakim MVP project for rtp01",
+  "main": "webpack.config.js",
+  "scripts": {
+    "start": "webpack --watch",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack-dev-server --content-base src --inline --hot"
+  },
+  "dependencies": {
+    "babel-core": "^6.17.0",
+    "babel-loader": "^6.2.0",
+    "babel-plugin-add-module-exports": "^0.1.2",
+    "babel-plugin-react-html-attrs": "^2.0.0",
+    "babel-plugin-transform-class-properties": "^6.3.13",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
+    "babel-preset-stage-0": "^6.3.13",
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "mongoose": "^4.11.8",
+    "react": "^0.14.6",
+    "react-dom": "^0.14.6",
+    "request": "^2.81.0",
+    "webpack": "^1.12.9",
+    "webpack-dev-server": "^1.14.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jioakim/jioakimMVP.git"
+  },
+  "author": "jioakim",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jioakim/jioakimMVP/issues"
+  },
+  "homepage": "https://github.com/jioakim/jioakimMVP#readme"
+}
