@@ -1,7 +1,8 @@
-var first = require('./first-names.json');
-var middle = require('./middle-names.json');
-var place = require('./places.json');
+var first = require('./json/first-names.json');
+var middle = require('./json/middle-names.json');
+var place = require('./json/places.json');
 var mongoose = require('mongoose');
+mongoose.Promise = require('bluebird');
 
 var Schema = mongoose.Schema;
 mongoose.connect('mongodb://jjsp27:123@ds159953.mlab.com:59953/mvprtp01');
@@ -15,7 +16,7 @@ mongoose.connection.on('error', function(error) {
 });
 
 
-var fistnameSchema = new Schema({
+var firstnameSchema = new Schema({
    firstname: String
 });
 
@@ -27,13 +28,14 @@ var placeSchema = new Schema({
    place: String
 });
 
-module.exports.fistnameSchema = fistnameSchema;
+module.exports.firstnameSchema = firstnameSchema;
 module.exports.middlenameSchema = middlenameSchema;
 module.exports.placeSchema = placeSchema;
 module.exports.mongoose = mongoose;
 
 
 //---this code run only once to pre-populate db with some data
+//---shell script for app: webpack-dev-server --content-base src --inline --hot
 // var FirstName = mongoose.model('FirstName', fistnameSchema);
 // var MiddleName = mongoose.model('MiddleName', middlenameSchema);
 // var Place = mongoose.model('Place', placeSchema);

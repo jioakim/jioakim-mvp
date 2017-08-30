@@ -1,0 +1,108 @@
+@charset "utf-8";
+
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body {
+  font-family:arial;
+}
+
+.wrapper {
+  max-width:1024px;
+  margin:0 auto;
+  background-color:#C7EFF3;
+}
+
+#formDiv {
+  width:100%;
+  padding-top:15px;
+
+}
+
+fieldset {
+  padding-bottom:20px;
+  background-color: #F8EF9C;
+}
+
+legend {
+  text-align: center;
+  color:red;
+  font-size:20px;
+  font-weight: bold;
+  text-decoration: italic;
+}
+
+.labels {
+  display: inline-block;
+  width: 100%;
+  text-align:center;
+  margin-top: 10px;
+}
+
+input {
+  width:90%;
+  height:25px;
+  background-color:#DBDBDB;
+  text-align:center;
+  margin-top:10px;
+  margin-left:5%;
+  border-radius:5px;
+}
+
+#submitDiv {
+  width:30%;
+  margin:0 auto;
+  margin-top:15px;
+  text-align: center;
+}
+
+#resultsListDiv {
+  width:100%;
+  padding-top:10px;
+  padding-bottom:10px;
+  text-align: center;
+  background-color: #28FB46;
+  float:left;
+}
+
+#resultDiv {
+  width:100%;
+  padding-top:5px;
+  padding-bottom:5px;
+  text-align: center;
+  background-color: #44F8DF;
+  border: 1px solid grey;
+  float:left;
+}
+
+#initialP{
+  color:green;
+}
+
+#inputInitSubmit {
+  width:50%;
+  margin-top:0;
+  margin-bottom:10px;
+}
+
+/*------------------------------------clear fix----------------------------------------*/
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}
+
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.cf {
+    *zoom: 1;
+}

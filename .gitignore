@@ -1,2 +1,2 @@
-models/*.json
+models/json/*.json
 node_modules
