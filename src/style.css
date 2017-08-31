@@ -19,17 +19,34 @@ body {
 #inputFormDiv {
   width:100%;
   padding-top:15px;
-
 }
 
-fieldset {
-  padding-bottom:20px;
+#inputCRUDDiv {
+  width:100%;
+  padding-top:15px;
+}
+
+#userInputFieldset{
+  padding-bottom:10px;
   background-color: #F8EF9C;
+}
+
+#crudFieldset{
+  padding-bottom:10px;
+  background-color: #F1BCF8;
 }
 
 legend {
   text-align: center;
   color:red;
+  font-size:20px;
+  font-weight: bold;
+  text-decoration: italic;
+}
+
+#crudLegend {
+  text-align: center;
+  color:blue;
   font-size:20px;
   font-weight: bold;
   text-decoration: italic;
@@ -42,7 +59,7 @@ legend {
   margin-top: 10px;
 }
 
-input {
+#userInputBox {
   width:90%;
   height:25px;
   background-color:#DBDBDB;
@@ -83,10 +100,22 @@ input {
   color:green;
 }
 
-#inputInitSubmit {
+#inputButtonReload {
   width:50%;
   margin-top:0;
   margin-bottom:10px;
+  background-color:#DBDBDB;
+  text-align:center;
+  border-radius:5px;
+  font-size:15px;
+}
+
+#userInputButtonSubmit {
+  width:50%;
+  background-color:#DBDBDB;
+  text-align:center;
+  border-radius:5px;
+  font-size:15px;
 }
 
 #inputP {
@@ -113,6 +142,24 @@ input {
   display: inline-block;
   width: 140px;
   text-align: right;
+}
+
+.crudDivs {
+  width:45%;
+  float:left;
+}
+
+#updateLink {
+  text-decoration: none;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-size: .7rem;
+}
+#deleteLink {
+  text-decoration: none;
+  padding-right: 15px;
+  font-size: .7rem;
+  color: red;
 }
 
 /*------------------------------------clear fix----------------------------------------*/

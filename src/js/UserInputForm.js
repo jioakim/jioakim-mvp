@@ -23,28 +23,34 @@ class UserInputForm extends React.Component {
   render() {
     return (
       <div>
-        <div>
+        <div id="inputCRUDDiv">
           <form>
-            <fieldset>
-              <div>
-                <label class = "labelsCRUD">Simple label</label><input type="text" />
-
+            <fieldset id="crudFieldset">
+            <legend id="crudLegend">Welcome to CRUD Random Generator!</legend>
+              <div class="crudDivs">
+                <label class = "labelsCRUD">Get Name</label><input type="text" class="crudInputs"/>
               </div>
-              <div>
-
+              <div class="crudDivs">
+                <label class = "labelsCRUD">Update Name</label><input type="text" class="crudInputs"/>
+              </div>
+              <div class="crudDivs">
+                <label class = "labelsCRUD">Add Name</label><input type="text" class="crudInputs"/>
+              </div>
+              <div class="crudDivs">
+                <label class = "labelsCRUD">Delete Name</label><input type="text" class="crudInputs"/>
               </div>
             </fieldset>
           </form>
         </div>
         <div id="inputFormDiv">
           <form onSubmit={this.handleInputFormSubmit}>
-            <fieldset>
+            <fieldset id="userInputFieldset">
+              <legend>Place some query...</legend>
               <div>
-                <label id="labelInputBox">Use your imagination and place some query!</label>
-                <input type="text" maxLength="100" value={this.state.textInput} onChange={this.handleChangeUserInput} />
+                <input type="text" maxLength="100" value={this.state.textInput} onChange={this.handleChangeUserInput} id="userInputBox"/>
               </div>
               <div id="submitDiv">
-                <input type="submit" value="send...." />
+                <input type="submit" value="send...." id="userInputButtonSubmit"/>
               </div>
             </fieldset>
           </form>

@@ -1,29 +1,38 @@
 import React from "react";
+import ReactDOM from "react-dom";
 import ResultListEntry from "./ResultListEntry";
 
-const ResultsList = (props) => (
-  <div id="resultsListDiv">
-    <div>
-      <form>
-        <input type="submit" value="Set the app to initial state with a new randomness!" id="inputInitSubmit"/>
-      </form>
-    </div>
-    {props.inputForm &&
-    <div id="inputTextDiv">
-      I am glad you used the input form!
-      {props.random &&
-      <span id="randomNumberSpan">  You got back {props.random} lucky names.</span>
-      }
-      {props.num &&
-      <span id="numNumberSpan">  As your wish implies, let me give you {props.num} results.</span>
-      }
-    </div>
-    }
-    <div>
-      {props.data.map(result => <ResultListEntry result={result} key={result.id}/>)}
-    </div>
-  </div>
-);
+class ResultsList extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return(
+      <div id="resultsListDiv">
+        <div>
+          <form onSubmit={this.props.getInitialDataHandle}>
+            <input type="submit" value="Set the app to initial state with a new randomness!" id="inputButtonReload"/>
+          </form>
+        </div>
+        {this.props.inputForm &&
+        <div id="inputTextDiv">
+          I am glad you used the input form!
+          {this.props.random &&
+          <span id="randomNumberSpan">  You got back {this.props.random} lucky names.</span>
+          }
+          {this.props.num &&
+          <span id="numNumberSpan">  As your wish implies, let me give you {this.props.num} results.</span>
+          }
+        </div>
+        }
+        <div>
+          {this.props.data.map(result => <ResultListEntry result={result} key={result.id} handleFirstNameDelete={this.props.handleFirstNameDelete}/>)}
+        </div>
+      </div>
+    );
+  }
+}
 
 export default ResultsList;
 

@@ -4,7 +4,13 @@ import ReactDOM from "react-dom";
 class ResultListEntry extends React.Component {
   constructor(props) {
     super(props);
+    this.handleDelete = this.handleDelete.bind(this);
     //this.getInitialData = this.getInitialData.bind(this);
+  }
+
+  handleDelete() {
+    console.log(this.props.result.id);
+    this.props.handleFirstNameDelete(this.props.result.id);
   }
 
   render() {
@@ -17,7 +23,9 @@ class ResultListEntry extends React.Component {
         }
         {this.props.result.input &&
           <p id="inputP">
-            Lucky name is <b>{this.props.result.firstName} {this.props.result.middleName}</b> and you are in <i><u>{this.props.result.place}</u></i>
+            Lucky name is <b>{this.props.result.firstName} {this.props.result.middleName}</b> and you are in <i><u>{this.props.result.place}</u></i>{this.props.result.id}
+            <a href='#' id="updateLink">update</a>
+            <a href='#' id="deleteLink" onClick={this.handleDelete}>delete</a>
           </p>
         }
       </div>

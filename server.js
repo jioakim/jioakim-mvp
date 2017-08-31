@@ -9,6 +9,7 @@
  app.use(bodyParser.json());
  // Parse forms (posts from user)
  app.use(bodyParser.urlencoded({ extended: true }));
+ var router = express.Router();
 
 // CORS headers
 app.use(function(req, res, next) {
@@ -23,11 +24,20 @@ app.use(function(req, res, next) {
 
 // set up api routes
 // endpoint for a single result that shows at start up
-app.get('/api/initial', util.handleGetInit);
+//app.get('/api/initial', util.handleGetInit);
+router.route('/initial').get(util.handleGetInit);
 
 // posts for input, -> LATER...first name, middlename, place
-app.post('/api/userinput', util.handleUserInputPost);
+//app.post('/api/userinput', util.handleUserInputPost);
+router.route('/userinput').post(util.handleUserInputPost);
 
+router.route('/result/:firstname_id').delete(util.handleDelete);
+
+//app.delete('api/result/:firstname_id', util.handleDelete);
+
+
+
+app.use('/api', router);
 //starts the server and listens for requests
 app.listen(3123, function() {
   console.log(`api running on port 3123`);
