@@ -4,36 +4,51 @@ class UserInputForm extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {input:''};
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleChange = this.handleChange.bind(this);
+    this.state = {textInput:''};
+    this.handleInputFormSubmit = this.handleInputFormSubmit.bind(this);
+    this.handleChangeUserInput = this.handleChangeUserInput.bind(this);
   }
 
-  handleChange(e) {
-    this.setState({input: e.target.value});
+  handleChangeUserInput(e) {
+    this.setState({textInput: e.target.value});
   }
 
-  handleSubmit(e) {
+  handleInputFormSubmit(e) {
     e.preventDefault();
-    console.log(this.state.input);
-
+    var userTextInput = this.state.textInput;
+    this.props.handleUserSubmit(userTextInput);
+    this.setState({textInput:''});
   }
 
   render() {
     return (
-      <div id="formDiv">
-        <form onSubmit={this.handleSubmit}>
-          <fieldset>
-            <legend>Welcome to names and places Generator!</legend>
-            <div>
-              <label class="labels" id="labelRandom">Use your imagination and place some query!</label>
-              <input type="text" maxLength="100" onChange = {this.handleChange}/>
-            </div>
-            <div id="submitDiv">
-              <input type="submit" value="send...." />
-            </div>
-          </fieldset>
-        </form>
+      <div>
+        <div>
+          <form>
+            <fieldset>
+              <div>
+                <label class = "labelsCRUD">Simple label</label><input type="text" />
+
+              </div>
+              <div>
+
+              </div>
+            </fieldset>
+          </form>
+        </div>
+        <div id="inputFormDiv">
+          <form onSubmit={this.handleInputFormSubmit}>
+            <fieldset>
+              <div>
+                <label id="labelInputBox">Use your imagination and place some query!</label>
+                <input type="text" maxLength="100" value={this.state.textInput} onChange={this.handleChangeUserInput} />
+              </div>
+              <div id="submitDiv">
+                <input type="submit" value="send...." />
+              </div>
+            </fieldset>
+          </form>
+        </div>
       </div>
     );
   }

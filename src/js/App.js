@@ -9,9 +9,9 @@ import ajaxHandler from "../../lib/ajaxHandler";
 class App extends React.Component {
   constructor() {
     super();
-    this.state = {data:[]};
-    //this.getInitialData = this.getInitialData.bind(this);
-
+    this.state = {data:[], random:false, inputForm:false, num:0};
+    this.getInitialData = this.getInitialData.bind(this);
+    this.handleUserSubmit = this.handleUserSubmit.bind(this);
   }
 
   getInitialData(callback) {
@@ -24,6 +24,12 @@ class App extends React.Component {
     });
   }
 
+  handleUserSubmit(userTextInput) {
+    ajaxHandler.postUserInputSubmit(userTextInput, function(data){
+      this.setState({data: data.results, inputForm:true, random: data.random, num:data.num});
+    }.bind(this));
+  }
+
   componentDidMount() {
     this.getInitialData(function(result){
       this.setState({data: result});
@@ -33,8 +39,8 @@ class App extends React.Component {
   render() {
     return (
       <div className='wrapper cf'>
-        <UserInputForm />
-        <ResultsList data = {this.state.data}/>
+        <UserInputForm handleUserSubmit = {this.handleUserSubmit}/>
+        <ResultsList data = {this.state.data} random = {this.state.random} inputForm = {this.state.inputForm} num = {this.state.num}/>
       </div>
     );
   }

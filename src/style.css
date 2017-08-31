@@ -16,7 +16,7 @@ body {
   background-color:#C7EFF3;
 }
 
-#formDiv {
+#inputFormDiv {
   width:100%;
   padding-top:15px;
 
@@ -35,7 +35,7 @@ legend {
   text-decoration: italic;
 }
 
-.labels {
+#labelInputBox {
   display: inline-block;
   width: 100%;
   text-align:center;
@@ -72,6 +72,7 @@ input {
   width:100%;
   padding-top:5px;
   padding-bottom:5px;
+  margin-bottom: 5px;
   text-align: center;
   background-color: #44F8DF;
   border: 1px solid grey;
@@ -86,6 +87,32 @@ input {
   width:50%;
   margin-top:0;
   margin-bottom:10px;
+}
+
+#inputP {
+  color:brown;
+}
+
+#inputTextDiv {
+  color:orange;
+  margin-bottom: 10px;
+  border: 2px solid gray;
+  background-color: blue;
+  text-decoration: bold;
+}
+
+#randomNumberSpan {
+  color:white;
+}
+
+#numNumberSpan {
+  color:white;
+}
+
+.labelsCRUD {
+  display: inline-block;
+  width: 140px;
+  text-align: right;
 }
 
 /*------------------------------------clear fix----------------------------------------*/

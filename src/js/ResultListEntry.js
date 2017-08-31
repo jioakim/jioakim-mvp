@@ -7,19 +7,17 @@ class ResultListEntry extends React.Component {
     //this.getInitialData = this.getInitialData.bind(this);
   }
 
-  stringToPrint() {
-    if (this.props.result.initial) {
-      return '<p id="initialP">Hello! Your random name for today is' + this.props.result.firstName + '</p>';
-    }
-    return this.props.result.firstName;
-  }
-
   render() {
     return (
       <div id="resultDiv">
         {this.props.result.initial &&
           <p id="initialP">
             Hello! Your random name for today is <b>{this.props.result.firstName} {this.props.result.middleName}</b> and you are in <i><u>{this.props.result.place}</u></i>
+          </p>
+        }
+        {this.props.result.input &&
+          <p id="inputP">
+            Lucky name is <b>{this.props.result.firstName} {this.props.result.middleName}</b> and you are in <i><u>{this.props.result.place}</u></i>
           </p>
         }
       </div>

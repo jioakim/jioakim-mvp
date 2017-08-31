@@ -23,12 +23,10 @@ app.use(function(req, res, next) {
 
 // set up api routes
 // endpoint for a single result that shows at start up
-app.get('/api/result', util.handleGetInit);
+app.get('/api/initial', util.handleGetInit);
 
 // posts for input, -> LATER...first name, middlename, place
-app.post('/api/result', function(req, res){
-
-});
+app.post('/api/userinput', util.handleUserInputPost);
 
 //starts the server and listens for requests
 app.listen(3123, function() {

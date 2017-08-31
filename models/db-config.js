@@ -17,15 +17,18 @@ mongoose.connection.on('error', function(error) {
 
 
 var firstnameSchema = new Schema({
-   firstname: String
+   firstname: String,
+   rand:Number
 });
 
 var middlenameSchema = new Schema({
-   middlename: String
+   middlename: String,
+   rand:Number
 });
 
 var placeSchema = new Schema({
-   place: String
+   place: String,
+   rand:Number
 });
 
 module.exports.firstnameSchema = firstnameSchema;
@@ -34,9 +37,9 @@ module.exports.placeSchema = placeSchema;
 module.exports.mongoose = mongoose;
 
 
-//---this code run only once to pre-populate db with some data
-//---shell script for app: webpack-dev-server --content-base src --inline --hot
-// var FirstName = mongoose.model('FirstName', fistnameSchema);
+// ---this code run only once to pre-populate db with some data
+// ---shell script for app: webpack-dev-server --content-base src --inline --hot
+// var FirstName = mongoose.model('FirstName', firstnameSchema);
 // var MiddleName = mongoose.model('MiddleName', middlenameSchema);
 // var Place = mongoose.model('Place', placeSchema);
 
@@ -46,17 +49,18 @@ module.exports.mongoose = mongoose;
 // var fnIntervarls = Math.floor(first.length / 200);
 // var mnIntervarls = Math.floor(middle.length / 200);
 // var plIntervarls = Math.floor(place.length / 200);
+// var veryBigNumber = 999999999;
 
 // for (var i = 0; i <= first.length; i = i + fnIntervarls) {
-//   firstNames200.push({firstName:first[i]});
+//   firstNames200.push({firstName:first[i], rand:Math.floor(Math.random() * veryBigNumber)});
 // }
 
 // for (var i = 0; i <= middle.length; i = i + mnIntervarls) {
-//   middleNames200.push({middleName:middle[i]});
+//   middleNames200.push({middleName:middle[i], rand:Math.floor(Math.random() * veryBigNumber)});
 // }
 
 // for (var i = 0; i <= place.length; i = i + plIntervarls) {
-//   places200.push({place:place[i]});
+//   places200.push({place:place[i], rand:Math.floor(Math.random() * veryBigNumber)});
 // }
 
 // firstNames200 = firstNames200.slice(0, 200);
