@@ -27,7 +27,7 @@ class ResultsList extends React.Component {
         </div>
         }
         <div>
-          {this.props.data.map(result => <ResultListEntry result={result} key={result.id} handleFirstNameDelete={this.props.handleFirstNameDelete}/>)}
+          {this.props.data.map(result => <ResultListEntry result={result} key={result.id} handleFirstNameDelete={this.props.handleFirstNameDelete} handleFirstNameUpdate={this.props.handleFirstNameUpdate}/>)}
         </div>
       </div>
     );

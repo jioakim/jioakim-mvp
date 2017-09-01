@@ -4,10 +4,13 @@ class UserInputForm extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {textInput:''};
+    this.cnReadOnly = true;
+    this.state = {textInput:'', gnInput:'', anInput:'', unInput:'', gnReadOnly:false, anReadOnly:false, unReadOnly:false};
     this.handleInputFormSubmit = this.handleInputFormSubmit.bind(this);
     this.handleChangeUserInput = this.handleChangeUserInput.bind(this);
   }
+
+
 
   handleChangeUserInput(e) {
     this.setState({textInput: e.target.value});
@@ -26,18 +29,21 @@ class UserInputForm extends React.Component {
         <div id="inputCRUDDiv">
           <form>
             <fieldset id="crudFieldset">
-            <legend id="crudLegend">Welcome to CRUD Random Generator!</legend>
+              <legend id="crudLegend">Welcome to CRUD Random Generator!</legend>
               <div class="crudDivs">
                 <label class = "labelsCRUD">Get Name</label><input type="text" class="crudInputs"/>
               </div>
               <div class="crudDivs">
-                <label class = "labelsCRUD">Update Name</label><input type="text" class="crudInputs"/>
+                <label class = "labelsCRUD">Current Name</label><input id="crudCNInputBox" type="text" class="crudInputs" readOnly={this.cnReadOnly} value={this.props.fnUpdate}/>
               </div>
               <div class="crudDivs">
                 <label class = "labelsCRUD">Add Name</label><input type="text" class="crudInputs"/>
               </div>
               <div class="crudDivs">
-                <label class = "labelsCRUD">Delete Name</label><input type="text" class="crudInputs"/>
+                <label class = "labelsCRUD">Update Name</label><input type="text" class="crudInputs"/>
+              </div>
+              <div class="submitDiv">
+                <input type="submit" value="CRUD..." class="userButtonSubmit"/>
               </div>
             </fieldset>
           </form>
@@ -49,8 +55,8 @@ class UserInputForm extends React.Component {
               <div>
                 <input type="text" maxLength="100" value={this.state.textInput} onChange={this.handleChangeUserInput} id="userInputBox"/>
               </div>
-              <div id="submitDiv">
-                <input type="submit" value="send...." id="userInputButtonSubmit"/>
+              <div class="submitDiv">
+                <input type="submit" value="send...." class="userButtonSubmit"/>
               </div>
             </fieldset>
           </form>

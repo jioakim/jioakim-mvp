@@ -31,11 +31,6 @@ body {
   background-color: #F8EF9C;
 }
 
-#crudFieldset{
-  padding-bottom:10px;
-  background-color: #F1BCF8;
-}
-
 legend {
   text-align: center;
   color:red;
@@ -69,7 +64,7 @@ legend {
   border-radius:5px;
 }
 
-#submitDiv {
+.submitDiv {
   width:30%;
   margin:0 auto;
   margin-top:15px;
@@ -110,7 +105,7 @@ legend {
   font-size:15px;
 }
 
-#userInputButtonSubmit {
+.userButtonSubmit {
   width:50%;
   background-color:#DBDBDB;
   text-align:center;
@@ -138,28 +133,56 @@ legend {
   color:white;
 }
 
+#crudFieldset{
+  padding-bottom:10px;
+  padding-top: 10px;
+  background-color: #F1BCF8;
+}
+
 .labelsCRUD {
   display: inline-block;
-  width: 140px;
+  width: 30%;
   text-align: right;
+  font-size: 12px;
+  font-weight: bold;
+  padding-right: 10px;
 }
 
 .crudDivs {
-  width:45%;
+  width:50%;
   float:left;
+  text-align:center;
+  margin-bottom:8px;
+  border:2px solid gray;
+  border-radius: 5px
 }
 
-#updateLink {
+.crudInputs {
+  width:50%;
+  background-color:#DBDBDB;
+  text-align:center;
+  margin-left:5%;
+  border-radius:5px;
+}
+
+#crudCNInputBox {
+  color:red;
+  font-weight: bold;
+}
+
+.updateLink {
   text-decoration: none;
   padding-left: 15px;
   padding-right: 15px;
   font-size: .7rem;
+  cursor:pointer;
 }
-#deleteLink {
+.deleteLink {
   text-decoration: none;
   padding-right: 15px;
   font-size: .7rem;
   color: red;
+  cursor:pointer;
 }
 
 /*------------------------------------clear fix----------------------------------------*/

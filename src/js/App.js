@@ -9,24 +9,22 @@ import ajaxHandler from "../../lib/ajaxHandler";
 class App extends React.Component {
   constructor() {
     super();
-    this.state = {data:[], random:false, inputForm:false, num:0};
+    this.state = {data:[], random:false, inputForm:false, num:0, fnUpdate:'', fnUpdateId:''};
     this.getInitialData = this.getInitialData.bind(this);
+    this.getInitialDataHandle = this.getInitialDataHandle.bind(this);
     this.handleUserSubmit = this.handleUserSubmit.bind(this);
     this.handleFirstNameDelete = this.handleFirstNameDelete.bind(this);
-    this.getInitialDataHandle = this.getInitialDataHandle.bind(this);
+    this.handleFirstNameUpdate = this.handleFirstNameUpdate.bind(this);
   }
 
   getInitialData(callback) {
-    // axios.get('http://127.0.0.1:3123/api/result')
-    //   .then(res => {
-    //     this.setState({data: res.data});
-    //   })
     ajaxHandler.getInit(function(result){
       callback(result);
     });
   }
 
-  getInitialDataHandle() {
+  getInitialDataHandle(e) {
+    e.preventDefault();
     this.getInitialData(function(result){
       this.setState({data: result, random:false, inputForm:false, num:0});
     }.bind(this));
@@ -46,8 +44,14 @@ class App extends React.Component {
         break;
       }
     }
-    this.setState({data:arr});
-    ajaxHandler.deleteFirstName(id);
+    var that = this;
+    ajaxHandler.deleteFirstName(id, function(){
+      that.setState({data:arr, fnUpdate:'', fnUpdateId:''});
+    });
+  }
+
+  handleFirstNameUpdate(fnUpdateId, fnUpdate) {
+    this.setState({fnUpdate:fnUpdate, fnUpdateId:fnUpdateId});
   }
 
   componentDidMount() {
@@ -59,8 +63,8 @@ class App extends React.Component {
   render() {
     return (
       <div className='wrapper cf'>
-        <UserInputForm handleUserSubmit = {this.handleUserSubmit}/>
-        <ResultsList data = {this.state.data} random = {this.state.random} inputForm = {this.state.inputForm} num = {this.state.num} handleFirstNameDelete = {this.handleFirstNameDelete} getInitialDataHandle={this.getInitialDataHandle}/>
+        <UserInputForm handleUserSubmit = {this.handleUserSubmit} fnUpdate={this.state.fnUpdate} fnUpdateId={this.state.fnUpdateId}/>
+        <ResultsList data = {this.state.data} random = {this.state.random} inputForm = {this.state.inputForm} num = {this.state.num} getInitialDataHandle={this.getInitialDataHandle} handleFirstNameDelete = {this.handleFirstNameDelete} handleFirstNameUpdate = {this.handleFirstNameUpdate}/>
       </div>
     );
   }
