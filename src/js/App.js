@@ -25,6 +25,7 @@ class App extends React.Component {
 
   getInitialDataHandle(e) {
     e.preventDefault();
+    this.setState({fnUpdate:'', fnUpdateId:''});
     this.getInitialData(function(result){
       this.setState({data: result, random:false, inputForm:false, num:0});
     }.bind(this));

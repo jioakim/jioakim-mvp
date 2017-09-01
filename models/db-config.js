@@ -17,12 +17,12 @@ mongoose.connection.on('error', function(error) {
 
 
 var firstnameSchema = new Schema({
-   firstname: String,
+   firstName: String,
    rand:Number
 });
 
 var middlenameSchema = new Schema({
-   middlename: String,
+   middleName: String,
    rand:Number
 });
 
@@ -38,7 +38,7 @@ module.exports.mongoose = mongoose;
 
 
 // ---this code run only once to pre-populate db with some data
-// ---shell script for app: webpack-dev-server --content-base src --inline --hot
+
 // var FirstName = mongoose.model('FirstName', firstnameSchema);
 // var MiddleName = mongoose.model('MiddleName', middlenameSchema);
 // var Place = mongoose.model('Place', placeSchema);

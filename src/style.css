@@ -185,6 +185,19 @@ legend {
   cursor:pointer;
 }
 
+.showCRUDDivs {
+  width:100%;
+  padding-top:5px;
+  padding-bottom:5px;
+  margin-bottom: 5px;
+  text-align: center;
+  background-color: #44F8DF;
+  color:#FC07DC;
+  font-weight: bold;
+  border: 1px solid grey;
+  float:left;
+}
+
 /*------------------------------------clear fix----------------------------------------*/
 .cf:before,
 .cf:after {

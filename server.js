@@ -25,11 +25,17 @@ app.use(function(req, res, next) {
 // set up api routes
 // endpoint for a single result that shows at start up
 //app.get('/api/initial', util.handleGetInit);
-router.route('/initial').get(util.handleGetInit);
+
+router.route('/result').get(util.handleGetInit);
+router.route('/result/:firstname').get(util.handleGetFirstName);
 
 // posts for input, -> LATER...first name, middlename, place
+
 //app.post('/api/userinput', util.handleUserInputPost);
-router.route('/userinput').post(util.handleUserInputPost);
+router.route('/result').post(util.handleUserInputPost);
+router.route('/result/:newuser').post(util.handleNewUserPost);
+
+router.route('/result/:firstname_id').put(util.handleUserUpdate);
 
 router.route('/result/:firstname_id').delete(util.handleDelete);
 
