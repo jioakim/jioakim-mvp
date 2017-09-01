@@ -18,7 +18,7 @@ class UserInputForm extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({gnInput:'', gnReadOnly:true, anInput:'', anReadOnly:false, fnGet:'', anPost:''});
+    this.setState({gnInput:'', gnReadOnly:true, anInput:'', anReadOnly:false, fnGet:'', anPost:'', unUpdate:''});
     if (this.props.fnUpdateId !== nextProps.fnUpdateId) {
       this.setState({unInput:''});
     }
@@ -50,22 +50,26 @@ class UserInputForm extends React.Component {
 
   handleCRUDFormSubmit(e) {
     e.preventDefault();
+    //this.setState({fnGet:'', anPost:'', unUpdate:''});
     var gn = this.state.gnInput;
     var an = this.state.anInput;
     var un = this.state.unInput;
+    this.gn = gn;
+    this.an = an;
+    this.un = un;
     var that = this;
     if (gn.length > 0) {
       ajaxHandler.getFirstName(gn, function(data){
-        that.setState({fnGet:data.firstName});
+        that.setState({fnGet:data.firstName, anPost:'', unUpdate:''});
       });
     } else if (an.length > 0) {
       ajaxHandler.addFirstName(an, function(data){
-        that.setState({anPost:data.newUser});
+        that.setState({anPost:data.newUser, fnGet:'', unUpdate:''});
       });
     } else if (un.length > 0 && un !== this.props.fnUpdate) {
       ajaxHandler.updateFisrtName(this.props.fnUpdateId, un, function(data){
         console.log(data);
-        //that.setState({unUpdate:data.updated});
+        that.setState({unUpdate:data.update, fnGet:'', anPost:''});
       });
     }
   }
@@ -113,14 +117,19 @@ class UserInputForm extends React.Component {
         <div>
           {this.state.fnGet.length > 0 &&
           <div class="showCRUDDivs">
-            {this.state.fnGet.length > 0 && this.state.fnGet !== 'not found' && <span>sucess!</span>}
-            {this.state.fnGet === 'not found' && <span>empty</span>}
+            {this.state.fnGet.length > 0 && this.state.fnGet !== 'not found' && <span>Thanks for GET. Name {this.gn} is in the DB!</span>}
+            {this.state.fnGet === 'not found' && <span>Thanks for GET. Name {this.gn} is NOT in the DB. Try to add it!</span>}
           </div>
           }
           {this.state.anPost.length > 0 &&
           <div class="showCRUDDivs">
-            {this.state.anPost === 'added' && <span>added</span>}
-            {this.state.anPost === 'exists' && <span>exists</span>}
+            {this.state.anPost === 'added' && <span>Thanks for ADD. The name {this.an} was sucessfully added to the DB!</span>}
+            {this.state.anPost === 'exists' && <span>Nice try ADD but the name {this.an} already exists!</span>}
+          </div>
+          }
+          {this.state.unUpdate.length > 0 &&
+          <div class="showCRUDDivs">
+            {this.state.unUpdate === 'completed' && <span>Thanks for UPDATE. The name {this.un} was sucessfully updated to the DB!</span>}
           </div>
           }
         </div>
