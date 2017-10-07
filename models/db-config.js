@@ -7,9 +7,9 @@ mongoose.Promise = require('bluebird');
 var Schema = mongoose.Schema;
 mongoose.connect('mongodb://jjsp27:123@ds159953.mlab.com:59953/mvprtp01');
 
-mongoose.connection.once('open', function() {
-  console.log('database is connected');
-});
+// mongoose.connection.once('open', function() {
+//   console.log('database is connected');
+// });
 
 mongoose.connection.on('error', function(error) {
   console.log('database connection error: ' + error);

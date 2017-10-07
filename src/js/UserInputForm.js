@@ -8,7 +8,7 @@ class UserInputForm extends React.Component {
     super(props);
     this.cnReadOnly = true;
     this.state = {textInput:'', gnInput:'', anInput:'', unInput:'', gnReadOnly:false, anReadOnly:false, unReadOnly:false,
-    fnGet:'', anPost:'', unUpdate:''};
+    fnGet:'', anPost:'', unUpdate:''}; // three last are REST responses that control how html is shown
     this.handleGNInput = this.handleGNInput.bind(this);
     this.handleANInput = this.handleANInput.bind(this);
     this.handleUNInput = this.handleUNInput.bind(this);

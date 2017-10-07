@@ -23,7 +23,7 @@ class ResultListEntry extends React.Component {
         {this.props.result.initial &&
           <p id="initialP">
             Hello! Your random name for today is <b>{this.props.result.firstName} {this.props.result.middleName}</b> and you are in <i><u>{this.props.result.place}</u></i>
-            <a class="updateLink" onClick={this.handleUpdate}>update</a>
+            <a class="updateLink" href="#" onClick={this.handleUpdate}>update</a>
             <a class="deleteLink" onClick={this.handleDelete}>delete</a>
           </p>
 
@@ -31,7 +31,7 @@ class ResultListEntry extends React.Component {
         {this.props.result.input &&
           <p id="inputP">
             Lucky name is <b>{this.props.result.firstName} {this.props.result.middleName}</b> and you are in <i><u>{this.props.result.place}</u></i>
-            <a class="updateLink" onClick={this.handleUpdate}>update</a>
+            <a class="updateLink" href="#" onClick={this.handleUpdate}>update</a>
             <a class="deleteLink" onClick={this.handleDelete}>delete</a>
           </p>
         }
